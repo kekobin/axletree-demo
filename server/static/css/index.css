@@ -1,0 +1,27 @@
+body, html, div, header, footer, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.list1 {
+  border-bottom: 2px solid red;
+  margin-bottom: 20px;
+}

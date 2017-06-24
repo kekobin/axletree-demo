@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="/css/index.css">
+	<script type="text/javascript" src="/js/lib/mod.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/widget.css" />
+</head>
+<body>
+<%- include template/header/header.tpl %>
+
+<div class="list">
+	<% if(api1.status && api1.status == 1 && api1.data) {
+		var data = api1.data;
+		var agencies = data.poi_list;
+	%>
+		<h2>定位:<%=data.desc%></h2>
+		<p><%=data.pos%></p>
+		<h3>该城市常规机构:</h3>
+
+		<ul>
+			<%- include('template/list/list.tpl', {lists: agencies}); %>
+		</ul>
+	<%}%>
+</div>
+
+<div class="list">
+	<% if(api2.status && api2.status == 1 && api2.data) {
+		var data = api2.data;
+		var agencies = data.poi_list;
+	%>
+		<h2>定位:<%=data.desc%></h2>
+		<p><%=data.pos%></p>
+		<h3>该城市常规机构:</h3>
+		
+		<ul>
+			<%- include('template/list/list.tpl', {lists: agencies}); %>
+		</ul>
+	<%}%>
+</div>
+<img src="/img/avatar.png" alt="">
+
+<%- include template/footer/footer.tpl %>
+
+<script type="text/javascript" src="/js/index.js" data-loader></script>
+<!--RESOURCEMAP_PLACEHOLDER--> <!-- // data-loader 属性是 fis3-postpackager-loader 插件的配置 -->
+<script type="text/javascript" src="/js/widget.js"></script>
+<script type="text/javascript" src="/js/common.js"></script> <!-- // fis3-postpackager-loader 插件的配置 -->
+<script type="text/javascript">
+  require('app.js');
+</script>
+<script type="text/javascript" charset="utf-8" src="http://172.28.25.3:35729/livereload.js"></script></body>
+</html>
+
+
+
+
