@@ -7,42 +7,37 @@
 	<link rel="stylesheet" href="sass/index.scss">
 	<!--STYLE_PLACEHOLDER-->
 	<script type="text/javascript" src="js/lib/mod.js"></script>
+	<script type="text/javascript">
+		//将node同步输出的数据传递到window对象上
+		var api1 = '<%- JSON.stringify(api1) %>';
+	    api1 = JSON.parse(api1);
+	</script>
 </head>
 <body>
-<%- include template/header/header.tpl %>
+<!-- <%- include template/header/header.tpl %> -->
 
 <div class="list">
-	<% if(api1.status && api1.status == 1 && api1.data) {
-		var data = api1.data;
-		var agencies = data.poi_list;
+	<h1>第一屏：数据在node层请求完，同步输出</h1>
+	<% if(api1.status && api1.status == 200 && api1.data) {
+		var data = api1.data ? api1.data.slice(0,18) : [];
 	%>
-		<h2>定位:<%=data.desc%></h2>
-		<p><%=data.pos%></p>
-		<h3>该城市常规机构:</h3>
-
 		<ul>
-			<%- include('template/list/list.tpl', {lists: agencies}); %>
+			<%- include('template/list/list.tpl', {lists: data}); %>
 		</ul>
 	<%}%>
 </div>
 
 <div class="list">
-	<% if(api2.status && api2.status == 1 && api2.data) {
-		var data = api2.data;
-		var agencies = data.poi_list;
-	%>
-		<h2>定位:<%=data.desc%></h2>
-		<p><%=data.pos%></p>
-		<h3>该城市常规机构:</h3>
-		
-		<ul>
-			<%- include('template/list/list.tpl', {lists: agencies}); %>
-		</ul>
-	<%}%>
+	<h1>第二屏：数据在js中使用ajax获取，异步输出</h1>
+	<ul id="list"></ul>
 </div>
 <img src="/img/avatar.png" alt="">
 
 <%- include template/footer/footer.tpl %>
+
+<script type="text/template" id="listTpl">
+  <%- Util.Template('axletree-demo', 'list/list.tpl') %>
+</script>
 
 <script type="text/javascript" src="js/index.js" data-loader></script> <!-- // data-loader 属性是 fis3-postpackager-loader 插件的配置 -->
 <!--SCRIPT_PLACEHOLDER--> <!-- // fis3-postpackager-loader 插件的配置 -->

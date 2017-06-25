@@ -3,15 +3,27 @@
 }
 
 .list-item img {
-  float: left;
   width: 40px;
   height: 40px;
-  margin-right: 15px;
   margin-top: 30px;
 }
 
-.list-item .detail {
+.list-item img.img-attack {
+  margin-right: 15px;
   float: left;
+}
+
+.list-item img.img-guard {
+  margin-left: 15px;
+  float: right;
+}
+
+.list-item .attack {
+  float: left;
+}
+
+.list-item .guard {
+  float: right;
 }
 
 .list-item button {

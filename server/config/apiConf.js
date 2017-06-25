@@ -6,14 +6,10 @@ module.exports = {
 				"urls": [
 					{
 						"name": "api1",
-						"url":"http://ditu.amap.com/service/regeo?longitude=121.04925573429551&latitude=31.315590522490712"
-					},
-					{
-						"name": "api2",
-						"url":"http://ditu.amap.com/service/regeo?longitude=121.04925573429551&latitude=31.315590522490712"
+						"url":"http://www.huya.com/hd/olddriver2/index.php?m=OldDriver2&do=ajaxGetCombatInfo"
 					}
 				],
-				"cache": true
+				"cache": false
 			}
 		]
 	}
