@@ -9,7 +9,7 @@ module.exports = {
 						"url":"http://www.huya.com/hd/olddriver2/index.php?m=OldDriver2&do=ajaxGetCombatInfo"
 					}
 				],
-				"cache": false
+				"cache": true
 			}
 		]
 	}
